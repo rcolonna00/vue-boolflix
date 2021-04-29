@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Collega html e CSS -->
+    <link rel="stylesheet" href="css/style.css">  
+    <!-- Collega html e FONT-AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <!-- Serve ad utilizzare AJAX -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+    <!-- Collega html e VUE -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!-- Titolo html -->
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="root">
+
+
+
+        <!-- INIZIO HEADER -->
+        <!-- FINE HEADER -->
+
+        <!-- INIZIO MAIN -->
+        <input 
+            type="text"
+            placeholder="Inserisci il film o la serie che vuoi cercare"
+            v-model="userFilter"
+            @keyup.enter="filterFunction()"
+        >
+
+        <button @click="filterFunction()">Cerca</button>
+
+        <div class="film">
+
+            <!-- singolo film -->
+            <div 
+                v-for="film in films"
+                class="single-film" 
+            >
+                <div class="img-film"> <img src="#" alt=""> </div>
+                <div class="titolo-film"> {{ film.title }} </div>
+                <div class="titolo_originale-film"> {{ film.original_title }} </div>
+                <div class="lingua-film"> {{ film.original_language }} </div>
+                <div class="voto-film"> {{ film.vote_average }} </div>
+
+            </div>
+            <!-- fine singolo film -->
+
+        </div>
+        <!-- FINE MAIN -->
+
+        <!-- INIZIO FOOTER -->
+        <!-- FINE FOOTER -->
+
+    </div>
+
+
+    <!-- Collega html a day.js per mettere le DATE -->
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <!-- Permette di usare JQUERY -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Collega html a JAVASCRIPT -->
+    <script type="text/javascript" src="js/script.js"></script>
+
+</body>
+</html>
