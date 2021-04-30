@@ -26,36 +26,49 @@
         <!-- FINE HEADER -->
 
         <!-- INIZIO MAIN -->
-        <input 
-            type="text"
-            placeholder="Inserisci il film o la serie che vuoi cercare"
-            v-model="userFilter"
-            @keyup.enter="filterFunction()"
-        >
-
-        <button @click="filterFunction()">Cerca</button>
-
-        <div class="film">
-
-            <!-- singolo film -->
-            <div 
-                v-for="film in films"
-                class="single-film" 
-            >
-                <div class="img-film"> <img src="#" alt=""> </div>
-                <div class="titolo-film"> {{ film.title }} </div>
-                <div class="titolo_originale-film"> {{ film.original_title }} </div>
-                <div class="lingua-film"> {{ film.original_language }} </div>
-                <div class="voto-film"> {{ film.vote_average }} </div>
-
-            </div>
-            <!-- fine singolo film -->
-
-        </div>
         <!-- FINE MAIN -->
 
         <!-- INIZIO FOOTER -->
         <!-- FINE FOOTER -->
+
+
+
+        <!-- //////////////////////// INIZIO DEI TEST -->
+
+        <section>
+            <input 
+                type="text"
+                placeholder="Inserisci il film o la serie che vuoi cercare"
+                v-model="userFilter"
+                @keyup.enter="filterFunction()"
+            >
+
+            <button @click="filterFunction()">Cerca</button>
+
+            <div class="film">
+
+                <!-- singolo film -->
+                <div 
+                    v-for="film in films"
+                    class="single-film" 
+                >
+                    <div class="img-film"> <img src="#" alt=""> </div>
+                    <div class="titolo-film"> {{ film.title }} </div>
+                    <div class="titolo_originale-film"> {{ film.original_title }} </div>
+                    <div class="lingua-film"> 
+                        <img :src=" 'img/' + film.original_language + '.png' " alt="">
+                        {{ film.original_language }} 
+                    </div>
+                    <div class="voto-film"> {{ film.vote_average }} </div>
+
+                </div>
+                <!-- fine singolo film -->
+
+            </div>
+        </section>
+        
+        
+        <!-- /////////////////////// FINE DEI TEST -->
 
     </div>
 
