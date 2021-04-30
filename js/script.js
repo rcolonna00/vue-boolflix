@@ -41,6 +41,11 @@ var app = new Vue(
                         this.films = result.results;
                         // console.log( this.films );
 
+                        // divido il voto del film in 2 e lo arrotondo per eccesso
+                        this.films.forEach(element => {
+                            element.vote_average = Math.ceil(element.vote_average / 2);
+                        });
+
                     })
                 }
 

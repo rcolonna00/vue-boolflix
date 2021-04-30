@@ -52,14 +52,22 @@
                     v-for="film in films"
                     class="single-film" 
                 >
-                    <div class="img-film"> <img :src="'https://image.tmdb.org/t/p/original' + film.backdrop_path " :alt="film.title"> </div>
+                    <div class="img-film"> <img :src="'https://image.tmdb.org/t/p/w342' + film.poster_path " :alt="film.title"> </div>
                     <div class="titolo-film"> {{ film.title }} </div>
                     <div class="titolo_originale-film"> {{ film.original_title }} </div>
                     <div class="lingua-film"> 
                         <img :src=" 'img/' + film.original_language + '.png' " alt="">
                         {{ film.original_language }} 
                     </div>
-                    <div class="voto-film"> {{ film.vote_average }} </div>
+                    <div 
+                        class="voto-film"
+                        v-for="star in film.vote_average"
+                    > 
+                        <i class="fas fa-star"></i> 
+                    </div>
+                    <div class="descrizione-film">
+                        {{ film.overview }}
+                    </div>
 
                 </div>
                 <!-- fine singolo film -->
