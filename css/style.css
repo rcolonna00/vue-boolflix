@@ -35,4 +35,12 @@ section .single-film{
     margin-bottom: 25px;
 }
 
+div.single-film .img-film{
+    width: 100px;
+}
+
+div.single-film .img-film img{ 
+    width: 100%;
+}
+
 /*-------------- FINE TEST */

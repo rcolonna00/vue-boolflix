@@ -52,7 +52,7 @@
                     v-for="film in films"
                     class="single-film" 
                 >
-                    <div class="img-film"> <img src="#" alt=""> </div>
+                    <div class="img-film"> <img :src="'https://image.tmdb.org/t/p/original' + film.backdrop_path " :alt="film.title"> </div>
                     <div class="titolo-film"> {{ film.title }} </div>
                     <div class="titolo_originale-film"> {{ film.original_title }} </div>
                     <div class="lingua-film"> 
