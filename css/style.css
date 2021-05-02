@@ -11,36 +11,84 @@ img{
 /* FINE GENERAL */
 
 /* INIZIO MACROAREE */
+.container-header{
+    padding: 20px;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 75px;
+}
+
+.container-main{
+    padding: 20px;
+    background-color: grey;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    height: calc( 100vh - 75px );
+    overflow: hidden;
+    overflow-y: auto;
+}
 /* FINE MACROAREE */
 
 /* INIZIO HEADER */
+.title{
+    color: red;
+}
+
+.search-bar input{
+    max-width: 220px;
+    padding: 7px 5px;
+    font-size: 15px;
+}
+
+.search-bar button{
+    padding: 7px 5px;
+    font-size: 15px;
+}
 /* FINE HEADER */
 
 /* INIZIO MAIN */
+
+.retro{
+    display: none;
+    position: absolute;
+    color: white;
+    top: 0;
+    background-color: black;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    padding: 25px 15px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+#single-film:hover .retro{
+    display: block;
+}
+
+#single-film{
+    width: calc( ( 100% / 5 ) - 20px );
+    margin: 0 10px 20px 10px;
+    position: relative;
+}
+
+.caratteristica{
+    font-weight: bold;
+}
+
+.fa-star{
+    color: gold;
+}
+
+.descrizione-film{
+    overflow: hidden;
+    overflow-y: auto;
+}
 /* FINE MAIN */
 
 /* INIZIO FOOTER */
 /* FINE FOOTER */
-
-
-
-/*-------------- INIZIO TEST */
-
-section img{
-    width: 50px;
-    height: 50px;
-}
-
-section .single-film{
-    margin-bottom: 25px;
-}
-
-div.single-film .img-film{
-    width: 100px;
-}
-
-div.single-film .img-film img{ 
-    width: 100%;
-}
-
-/*-------------- FINE TEST */

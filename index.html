@@ -23,60 +23,78 @@
 
 
         <!-- INIZIO HEADER -->
+        <header>
+            <div class="container-header">
+
+                <div class="title">
+                    <h2>BOOLFLIX</h2>
+                </div>
+                <div class="search-bar">
+                    <input 
+                    type="text"
+                    placeholder="Inserisci qui il tuo titolo"
+                    v-model="userFilter"
+                    @keyup.enter="filterFunction()"
+                    >
+                    <button @click="filterFunction()">Cerca</button>
+                </div>
+                
+            </div>
+        </header>
         <!-- FINE HEADER -->
 
         <!-- INIZIO MAIN -->
+        <main>
+            <div class="container-main">
+
+                <div 
+                v-for="film in films"
+                id="single-film"
+                >
+
+                    <div class="fronte">
+                        <!-- IMMAGINE DI COPERTINA -->
+                        <img :src="'https://image.tmdb.org/t/p/w342' + film.poster_path " :alt="film.title"> 
+                    </div>
+                    
+                
+                    <div 
+                    class="retro"
+                    >
+                
+                        <!-- TITOLO -->
+                        <div class="titolo-film"> 
+                            <span class="caratteristica">Titolo: </span>{{ film.title }} 
+                        </div>
+
+                        <!-- TITOLO ORIGINALE -->
+                        <div class="titolo_originale-film">
+                            <span class="caratteristica">Titolo Originale: </span>{{ film.original_title }} 
+                        </div>
+
+                        <!-- VOTO trasformato in STELLE -->
+                        <div 
+                        class="voto-film"
+                        > 
+                            Voto: 
+                            <i class="fas fa-star" v-for="star in film.vote_average"></i> 
+                        </div>
+                
+                        <!-- OVERVIEW (Descrizione Film ) -->
+                        <div class="descrizione-film">
+                            Overview: {{ film.overview }}
+                        </div>
+
+                    </div>
+
+                </div>
+            
+            </div>
+        </main>
         <!-- FINE MAIN -->
 
         <!-- INIZIO FOOTER -->
         <!-- FINE FOOTER -->
-
-
-
-        <!-- //////////////////////// INIZIO DEI TEST -->
-
-        <section>
-            <input 
-                type="text"
-                placeholder="Inserisci il film o la serie che vuoi cercare"
-                v-model="userFilter"
-                @keyup.enter="filterFunction()"
-            >
-
-            <button @click="filterFunction()">Cerca</button>
-
-            <div class="film">
-
-                <!-- singolo film -->
-                <div 
-                    v-for="film in films"
-                    class="single-film" 
-                >
-                    <div class="img-film"> <img :src="'https://image.tmdb.org/t/p/w342' + film.poster_path " :alt="film.title"> </div>
-                    <div class="titolo-film"> {{ film.title }} </div>
-                    <div class="titolo_originale-film"> {{ film.original_title }} </div>
-                    <div class="lingua-film"> 
-                        <img :src=" 'img/' + film.original_language + '.png' " alt="">
-                        {{ film.original_language }} 
-                    </div>
-                    <div 
-                        class="voto-film"
-                        v-for="star in film.vote_average"
-                    > 
-                        <i class="fas fa-star"></i> 
-                    </div>
-                    <div class="descrizione-film">
-                        {{ film.overview }}
-                    </div>
-
-                </div>
-                <!-- fine singolo film -->
-
-            </div>
-        </section>
-        
-        
-        <!-- /////////////////////// FINE DEI TEST -->
 
     </div>
 
